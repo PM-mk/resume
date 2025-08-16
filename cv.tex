@@ -1,0 +1,82 @@
+%% SETUP %%
+
+\documentclass[12pt]{article}
+\pagestyle{empty}
+% geometry
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  left=10mm,
+  right=10mm,
+  bottom=15mm,
+  top=15mm
+}
+\usepackage{blindtext}
+% sectsty
+\usepackage{sectsty}
+\sectionfont{
+  \large
+  \sectionrule{0pt}{0pt}{-5pt}{1pt}
+}
+% paracol
+\usepackage{paracol}
+\columnratio{0.35}
+% graphicx
+\usepackage{graphicx}
+\graphicspath{{./img}}
+% xcolor
+\usepackage{xcolor}
+% fontawesome5
+% \usepackage{fontawesome5} add fancy icons later
+
+% TODO: add background graphics
+% TODO: make clickable hyperlinks
+
+%% MACROS %%
+
+\newcommand{\signature}{
+  \begin{flushright}
+    {\huge mgr inż. \textbf{John Doe}}
+  \end{flushright}
+}
+
+\newcommand{\photo}{
+  \begin{center}
+    \includegraphics[scale=0.3]{photo}
+  \end{center}
+}
+
+\newcommand{\contactinfo}{
+  \noindent
+  email: john.doe@example.com\\
+  tel: 123456789\\
+  github: github.com/jdoe\\
+  github2: github.com/asd123
+}
+
+\newcommand\historyentry[3]{
+  \parbox[b]{70pt}{#1}
+  \color{teal}
+  \makebox[0pt][c]{$\bullet$}\vrule\quad
+  \color{black}
+  \parbox[t]{455pt}{\Large #2\\\normalsize #3\\[5pt]}\\[-3pt]
+}
+
+%% BODY %%
+
+\begin{document}
+\begin{paracol}{2}
+  \begin{leftcolumn}
+    \contactinfo
+    \photo
+  \end{leftcolumn}
+  \begin{rightcolumn}
+    \signature
+    \section*{}
+    \blindtext
+  \end{rightcolumn}
+\end{paracol}
+\section*{Experience}
+\historyentry{2023 - teraz}{Company B}{\blindtext}
+\historyentry{2021 - 2022}{Company A}{description here\\more lines here}
+\end{document}
