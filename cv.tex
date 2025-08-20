@@ -27,7 +27,9 @@
 % xcolor
 \usepackage{xcolor}
 % fontawesome5
-% \usepackage{fontawesome5} add fancy icons later
+\usepackage{fontawesome5}
+% hyperref
+\usepackage{hyperref}
 
 % TODO: add background graphics
 % TODO: make clickable hyperlinks
@@ -36,7 +38,7 @@
 
 \newcommand{\signature}{
   \begin{flushright}
-    {\huge mgr inż. \textbf{John Doe}}
+    {\huge title \textbf{John Doe}}
   \end{flushright}
 }
 
@@ -46,12 +48,17 @@
   \end{center}
 }
 
+\newcommand{\summary}{
+  \section*{}
+  \blindtext
+}
+
 \newcommand{\contactinfo}{
-  \noindent
-  email: john.doe@example.com\\
-  tel: 123456789\\
-  github: github.com/jdoe\\
-  github2: github.com/asd123
+  \begin{itemize}
+    \item[{\faEnvelope[regular]}] john.doe@example.com
+    \item[{\faPhone*}] 123456789
+    \item[{\faGithub}] \href{https://github.com/jdoe}{github.com/jdoe}
+  \end{itemize}
 }
 
 \newcommand\historyentry[3]{
@@ -59,7 +66,36 @@
   \color{teal}
   \makebox[0pt][c]{$\bullet$}\vrule\quad
   \color{black}
-  \parbox[t]{455pt}{\Large #2\\\normalsize #3\\[5pt]}\\[-3pt]
+  \parbox[t]{255pt}{\Large #2\\\normalsize #3\\[5pt]}\\[-3pt]
+}
+
+\newcommand{\experience}{
+  \section*{{\faSuitcase} Experience}
+  \historyentry{2023 - now}{Company B}{\blindtext}
+  \historyentry{2021 - 2022}{Company A}{description here\\more lines here}
+}
+
+\newcommand{\education}{
+  \section*{{\faGraduationCap} Education}
+  \historyentry{2021 - 2022}{School A}{description here\\more lines here}
+}
+
+\newcommand{\skills}{
+  \section*{{\faBrain} Skills}
+  \begin{itemize}
+    \item Skill 1
+    \item Skill 2
+    \item Skill 3
+  \end{itemize}
+}
+
+\newcommand{\interests}{
+  \section*{{\faBook} Interests}
+  \begin{itemize}
+    \item Interest 1
+    \item Interest 2
+    \item Interest 3
+  \end{itemize}
 }
 
 %% BODY %%
@@ -69,14 +105,14 @@
   \begin{leftcolumn}
     \contactinfo
     \photo
+    \skills
+    \interests
   \end{leftcolumn}
   \begin{rightcolumn}
     \signature
-    \section*{}
-    \blindtext
+    \summary
+    \experience
+    \education
   \end{rightcolumn}
 \end{paracol}
-\section*{Experience}
-\historyentry{2023 - teraz}{Company B}{\blindtext}
-\historyentry{2021 - 2022}{Company A}{description here\\more lines here}
 \end{document}
